@@ -14,6 +14,10 @@ MySQL es un sistema de gestión de bases de datos relacional ampliamente utiliza
 
 El objetivo es montar un entorno con dos contenedores: uno para MySQL y otro para phpMyAdmin, conectándolos a través de una red personalizada en Docker para que se comuniquen correctamente.
 
+### Imagen relacionada con la teoría:
+![Contenedor Docker con PostgreSQL](docker/8.png)  
+*Figura 1-1. Volumenes.*
+
 ## 4. Conocimientos previos
 
 Para realizar esta práctica, se deben tener nociones sobre:
@@ -53,6 +57,8 @@ Para realizar esta práctica, se deben tener nociones sobre:
 docker network create mysql-phpmyadmin-net
 
 ```
+![Contenedor Docker con PostgreSQL](docker/1.png)  
+
 ### Paso 2: Crear el contenedor de MySQL
 
 Ejecuta el siguiente comando para crear el contenedor de MySQL conectado a la red personalizada:
@@ -67,6 +73,8 @@ docker run -d \
   -e MYSQL_PASSWORD=usuariopass \
   mysql:8.0
 ```
+![Contenedor Docker con PostgreSQL](docker/1.png)  
+
 ### Paso 3: Crear el contenedor de phpMyAdmin
 
 Ejecuta el siguiente comando para crear el contenedor de phpMyAdmin y conectarlo a la misma red que el contenedor de MySQL:
@@ -81,6 +89,8 @@ docker run -d \
   -p 8080:80 \
   phpmyadmin/phpmyadmin
 ```
+![Contenedor Docker con PostgreSQL](docker/1.png)  
+
 ### Parte 2: Acceso a la interfaz de phpMyAdmin
 
 #### Paso 4: Acceder desde el navegador
@@ -92,6 +102,8 @@ docker run -d \
 http://localhost:8080
 
 ```
+![Contenedor Docker con PostgreSQL](docker/1.png)  
+
 # Paso 5: Crear una base de datos y tabla desde phpMyAdmin
 
 ```sql
@@ -108,6 +120,8 @@ CREATE TABLE clientes (
 INSERT INTO clientes (nombre, correo) VALUES ('Ana López', 'ana@example.com');
 
 ```
+![Contenedor Docker con PostgreSQL](docker/1.png) 
+
 # 9. Resultados esperados
 
 - phpMyAdmin debe conectarse a la base de datos MySQL usando `mysql-container` como host.
